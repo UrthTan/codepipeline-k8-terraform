@@ -10,7 +10,7 @@ resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16"
   tags = tomap(
     {
-      "Name"                                      = "codepipeline-k8-terraform-node"
+      "Name"                                      = var.node_name
       "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     }
   )
@@ -24,7 +24,7 @@ resource "aws_subnet" "my_vpc_subnets" {
   vpc_id                  = aws_vpc.my_vpc.id
   tags = tomap(
     {
-      "Name"                                      = "codepipeline-k8-terraform-node"
+      "Name"                                      = var.node_name
       "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     }
   )
