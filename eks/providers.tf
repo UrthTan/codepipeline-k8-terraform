@@ -20,7 +20,7 @@ data "aws_availability_zones" "available" {}
 provider "http" {}
 
 # Assume Role Policy
-data "aws_iam_policy_document" "eks_assume_role_policy" {
+data "aws_iam_policy_document" "eks_assume_role_policy_document" {
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "eks_assume_role_policy" {
   }
 }
 
-data "aws_iam_policy_document" "ec2_assume_role_policy" {
+data "aws_iam_policy_document" "ec2_assume_role_policy_document" {
   statement {
     actions = ["sts:AssumeRole"]
 

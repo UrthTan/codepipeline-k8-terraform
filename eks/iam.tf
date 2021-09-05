@@ -2,7 +2,7 @@
 
 resource "aws_iam_role" "k8_cluster" {
   name               = var.cluster_name
-  assume_role_policy = data.aws_iam_policy_document.eks_assume_role_policy.json
+  assume_role_policy = data.aws_iam_policy_document.eks_assume_role_policy_document.json
 }
 
 resource "aws_iam_policy_attachment" "node-AmazonEKSClusterPolicy" {
@@ -21,7 +21,7 @@ resource "aws_iam_policy_attachment" "node-AmazonEKSVPCResourceController" {
 
 resource "aws_iam_role" "k8_node" {
   name               = var.node_name
-  assume_role_policy = data.aws_iam_policy_document.ec2_assume_role_policy.json
+  assume_role_policy = data.aws_iam_policy_document.ec2_assume_role_policy_document.json
 }
 
 resource "aws_iam_policy_attachment" "node-AmazonEKSWorkerNodePolicy" {
